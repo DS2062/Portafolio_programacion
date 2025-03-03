@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+}
+
+p{
+    text-indent: 1.27cm;
+    text-align: justify;
+    font-family:sans-serif;
+    font-size: 18px;
+    margin: 1cm;
+}
+h1{
+    margin: 0.5cm;
+}
+h4{
+    margin: 0.5cm;
+}
+.lista{
+    margin: 0.5cm;
+    font-family:sans-serif;
+    font-size: 18px;
+}
+
+.header_ul{
+    list-style-type: none;
+    font-family:sans-serif;
+    font-size: 30px;
+    margin: 0;
+    color: white;
+    background-color: rgb(245, 79, 79);
+    overflow: hidden;
+}
+.header_li{
+    float: right;
+}
+li a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+}
+li a:hover{
+    background-color: rgb(241, 126, 126);
+}
+.footer{
+    list-style-type: none;
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.877);
+    
+}
