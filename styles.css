@@ -1,5 +1,6 @@
 .logo img{
-    transform: translate(1cm,1cm);
+    position: absolute;
+    transform: translate(1cm,-0.4cm);
     display: inline-block;
     margin: 0cm;
     padding: 0cm;
@@ -8,6 +9,14 @@
 }
 .logo{
     text-align: left; 
+}
+
+.tejon img{
+    border-radius: 50px;
+}
+.tejon{
+    position: absolute;
+    transform: translate(25cm,-1.2cm);
 }
 
 body{
@@ -78,6 +87,7 @@ li a:hover{
 .bt_send input{
     font-size: 15px;
     background-color: rgb(245, 79, 79);
+    color: white;
     border-radius: 50px;
     padding: 0.3cm;
     padding-left: 0.6cm;
