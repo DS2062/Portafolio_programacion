@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +11,14 @@
 <header>
     <div id="id_inicio"></div>
     <ul class="header_ul">
-
         <div class="logo">
             <img src="assets/logo/cocodrilo.png" alt="cocodrilo.jpg" height="65px">
         </div>
-
         <li class="header_li"><a href="https://github.com/DS2062">Sobre mi</a></li>
         <li class="header_li"><a href="#id_sugerir">Sugerencias</a></li>
         <li class="header_li"><a href="#id_inicio">Inicio</a></li>
     </ul>
 </header>
-
 <body>
     <div> <!-- resumen -->
         <h1>Tejón de la miel (Mellivora capensis)</h1>
@@ -80,28 +76,56 @@
     <section> <!-- zona de Notas -->
         <h1 class="leave_coments">Deja un comentario!</h1>
         <div class="container-fluid row coments">
-            <form class="col-4">
-                <div class="mb-3">
-                    <label for="i_email" class="form-label">Direccion de E-mail</label>
-                    <input type="email" class="form-control" id="i_email" maxlength="255" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">No compartiremos tu direccion E-mail con nadie.</div>
+            <form class="col-4" method="POST">
+            <?php
+                include "controller/conn.php";
+                include "controller/new_user.php";
+            ?>
+                <div class="mb-3"><!-- input email -->
+                    <label for="i_email" class="form-label">Direccion de E-mail *</label>
+                    <input type="email" class="form-control" name="i_email" maxlength="255" aria-describedby="email">
+                    <div id="emailHelp" class="form-text">No compartiremos tu direccion E-mail con nadie. Los campos
+                        requeridos estan marcados *</div>
                 </div>
-                <div class="mb-3">
-                    <label for="i_nma" class="form-label">Nombre y Apellido</label>
-                    <input type="text" class="form-control" id="i_nma" maxlength="255" aria-describedby="emailHelp">
-                    <div id="nameHelp" class="form-text"></div>
+                <div class="mb-3"><!-- input nom -->
+                    <label for="i_nma" class="form-label">Nombre *</label>
+                    <input type="text" class="form-control" name="i_nom" maxlength="255" aria-describedby="nom">
                 </div>
-                <div class="mb-3">
-                    <label for="i_nmu" class="form-label">Nombre de Usuario</label>
-                    <input type="text" class="form-control" id="i_nmu" maxlength="255" aria-describedby="emailHelp">
-                    <div id="nameuHelp" class="form-text"></div>
+                <div class="mb-3"><!-- input ape -->
+                    <label for="i_ape" class="form-label">Apellido *</label>
+                    <input type="text" class="form-control" name="i_ape" maxlength="255" aria-describedby="ape">
                 </div>
-                <div class="mb-3">
-                    <label for="text_a" class="form-label">Comentario</label>
-                    <textarea class="form-control" id="text_a" rows="3"></textarea>
+                <div class="mb-3"><!-- input nomu -->
+                    <label for="i_nmu" class="form-label">Nombre de Usuario *</label>
+                    <input type="text" class="form-control" name="i_nmu" maxlength="255" aria-describedby="nomu">
                 </div>
-                <button type="submit" class="btn btn-primary">Comentar</button>
+                <div class="mb-3"><!-- text area crear comentario -->
+                    <label for="text_a" class="form-label">Comentario *</label>
+                    <textarea class="form-control" name="text_a" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" name="btn_send" value="Enviado">Comentar</button><!-- btn send comment -->
             </form>
+            <section class="col-5 comment_zone"><!-- zona de comentarios -->
+                <?php
+                include "controller\conn.php";
+                $sql = $conn->query("select * from comentarios");
+                while ($comments = $sql->fetch_object()) { ?>
+
+
+                    <label for="comment" class="form-label"> <?= $comments->nombre_usuario?></label>
+                    <label for="comment" class="form-label"> <?= $comments->fecha?></label>
+                    <div class="card">
+                        <div class="card-body" id="comment"><?= $comments->comentario?></div>
+                    </div>
+                    <div class="btn_comment">
+                        <a href="" class="btn btn-small btn-warning">Editar</a>
+                        <a href="" class="btn btn-small btn-danger">Eliminar</a>
+                    </div>
+
+
+                <?php }
+                ?>
+            </section>
         </div>
     </section>
 </body>
