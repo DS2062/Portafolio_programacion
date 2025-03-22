@@ -101,7 +101,7 @@
                 </div>
                 <div class="mb-3"><!-- text area crear comentario -->
                     <label for="text_a" class="form-label">Comentario *</label>
-                    <textarea class="form-control" name="text_a" rows="3"></textarea>
+                    <textarea class="form-control" name="text_a" maxlength="1000" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary" name="btn_send" value="Enviado">Comentar</button><!-- btn send comment -->
             </form>
