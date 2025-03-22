@@ -79,7 +79,8 @@
             <form class="col-4" method="POST">
             <?php
                 include "controller/conn.php";
-                include "controller/new_user.php";
+                include "controller/new_comment.php";
+                include "controller/del_comment.php";
             ?>
                 <div class="mb-3"><!-- input email -->
                     <label for="i_email" class="form-label">Direccion de E-mail *</label>
@@ -121,7 +122,7 @@
                     </div>
                     <div class="btn_comment">
                         <a href="edit_index.php?id=<?= $comments->id ?>" class="btn btn-small btn-warning">Editar</a>
-                        <a href="" class="btn btn-small btn-danger">Eliminar</a>
+                        <a href="index.php?id=<?= $comments->id ?>" class="btn btn-small btn-danger">Eliminar</a>
                     </div>
                 <?php }
                 ?>

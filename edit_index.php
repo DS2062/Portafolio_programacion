@@ -24,7 +24,7 @@ $sql = $conn->query("select * from comentarios where id = $id")
             <h1 class="leave_coments">Editar comentario</h1>
             <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
             <?php
-            include "controller/edit_user.php";
+            include "controller/edit_comment.php";
             while ($edit_comment = $sql->fetch_object()) { ?>
                 <div class="mb-3"><!-- input email -->
                     <label for="i_email" class="form-label">Modificar E-mail</label>
