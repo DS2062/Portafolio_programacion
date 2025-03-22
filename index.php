@@ -84,7 +84,7 @@
                 <div class="mb-3"><!-- input email -->
                     <label for="i_email" class="form-label">Direccion de E-mail *</label>
                     <input type="email" class="form-control" name="i_email" maxlength="255" aria-describedby="email">
-                    <div id="emailHelp" class="form-text">No compartiremos tu direccion E-mail con nadie. Los campos
+                    <div class="form-text">No compartiremos tu direccion E-mail con nadie. Los campos
                         requeridos estan marcados *</div>
                 </div>
                 <div class="mb-3"><!-- input nom -->
@@ -98,6 +98,8 @@
                 <div class="mb-3"><!-- input nomu -->
                     <label for="i_nmu" class="form-label">Nombre de Usuario *</label>
                     <input type="text" class="form-control" name="i_nmu" maxlength="255" aria-describedby="nomu">
+                    <div class="form-text">Solo tu nombre de usuario sera visible.</div>
+
                 </div>
                 <div class="mb-3"><!-- text area crear comentario -->
                     <label for="text_a" class="form-label">Comentario *</label>
@@ -112,17 +114,15 @@
                 while ($comments = $sql->fetch_object()) { ?>
 
 
-                    <label for="comment" class="form-label"> <?= $comments->nombre_usuario?></label>
-                    <label for="comment" class="form-label"> <?= $comments->fecha?></label>
+                    <label for="comment" class="form-label label_nomu"> <?= $comments->nombre_usuario?>&nbsp;</label>
+                    <label for="comment" class="form-label label_date"> <?= $comments->fecha?></label>
                     <div class="card">
                         <div class="card-body" id="comment"><?= $comments->comentario?></div>
                     </div>
                     <div class="btn_comment">
-                        <a href="" class="btn btn-small btn-warning">Editar</a>
+                        <a href="edit_index.php?id=<?= $comments->id ?>" class="btn btn-small btn-warning">Editar</a>
                         <a href="" class="btn btn-small btn-danger">Eliminar</a>
                     </div>
-
-
                 <?php }
                 ?>
             </section>
